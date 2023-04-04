@@ -5,11 +5,12 @@ import { AuthenticationModule } from './controllers/authentication/authenticatio
 import { UsersModule } from './controllers/users/users.module';
 
 import { AuthMiddleware } from './middlewares/auth/auth.middleware';
+import { DbService } from './db/db.service';
 
 @Module({
   imports: [AuthenticationModule, UsersModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, DbService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
