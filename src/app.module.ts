@@ -2,10 +2,11 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthMiddleware } from './middlewares/auth/auth.middleware';
-import { MoviesModule } from './controllers/movies/movies.module';
-import { DatabaseModule } from './database/database.module';
+import { DatabaseModule } from './libs/database/database.module';
+import { MovieModule } from './modules/movie/movie.module';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
 @Module({
-  imports: [MoviesModule, DatabaseModule],
+  imports: [DatabaseModule, MovieModule, AuthenticationModule],
   controllers: [AppController],
   providers: [AppService],
   exports: [DatabaseModule],
