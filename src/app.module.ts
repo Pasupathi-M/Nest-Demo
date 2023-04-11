@@ -9,7 +9,7 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
   imports: [DatabaseModule, MovieModule, AuthenticationModule],
   controllers: [AppController],
   providers: [AppService],
-  exports: [DatabaseModule],
+  // exports: [DatabaseModule],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
