@@ -11,6 +11,27 @@ datasource db {
 }
 
 model Movies {
-  id   Int    @id @default(autoincrement())
-  name String
+  id         Int     @id @default(autoincrement())
+  name       String
+  duration   Int
+  ratingStar Float?
+  createdBy  String?
+  updatedBy  String?
+  createdAt  Int?
+}
+
+model roles {
+  id        Int     @id @default(autoincrement())
+  role_name String
+  users     users[]
+}
+
+model users {
+  id          Int    @id @default(autoincrement())
+  username    String
+  phonenumber BigInt
+  email       String
+  pass        String
+  role_id     Int
+  role        roles  @relation(fields: [role_id], references: [id])
 }

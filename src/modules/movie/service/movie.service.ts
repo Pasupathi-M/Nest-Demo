@@ -9,8 +9,13 @@ export class MovieService {
   }
 
   async createMovie(req: Request, res: Response) {
-    //
-    const resData = await this.DB.movies.create({ data: req.body });
-    res.send(resData);
+    try {
+      const resData = await this.DB.movies.create({ data: req.body });
+      res.send(resData);
+    } catch (e: any) {
+      res.json({
+        message: e.message,
+      });
+    }
   }
 }
