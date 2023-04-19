@@ -31,4 +31,9 @@ export class AuthenticationController {
   createRole(@Req() req: Request, @Res() res: Response) {
     this.authenticationService.createRole(req, res);
   }
+
+  @Post('login')
+  loginUser(@Req() req: Request, @Res() res: Response) {
+    this.authenticationService.logInUser(req, res);
+  }
 }
